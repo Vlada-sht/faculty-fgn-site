@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Кафедри факультету</h2>
+    <ul>
+        {% for d in departments %}
+            <li>
+                <a href="/departments/{{ d.id }}/">{{ d.name }}</a> 
+                (Зав. кафедрою: {{ d.head }})
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

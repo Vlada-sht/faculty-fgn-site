@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Спеціальності</h2>
+    <ul>
+        {% for p in programs %}
+            <li>
+                <a href="/programs/{{ p.id }}/"><strong>{{ p.code }} {{ p.name }}</strong></a><br>
+                Опис: {{ p.description|truncatewords:50 }} <br>
+                Координатор: {{ p.coordinator_name }}
+            </li><br>
+        {% endfor %}
+    </ul>
+{% endblock %}

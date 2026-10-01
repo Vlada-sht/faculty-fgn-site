@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>{{ department.name }}</h2>
+    <p><strong>Завідувач кафедри:</strong> {{ department.head }}</p>
+    
+    <h3>Спеціальності кафедри:</h3>
+    <ul>
+        {% for s in specialties %}
+            <li><a href="/programs/{{ s.id }}/">{{ s.code }} - {{ s.name }}</a></li>
+        {% empty %}
+            <li>Немає прив'язаних спеціальностей.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Викладачі кафедри:</h3>
+    <ul>
+        {% for t in teachers %}
+            <li>{{ t.name }} ({{ t.position }}, {{ t.degree }})</li>
+        {% empty %}
+            <li>Викладачів ще не додано.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

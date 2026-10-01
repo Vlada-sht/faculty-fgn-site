@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Програми академічного обміну</h2>
+    <ul>
+        {% for p in programs %}
+            <li style="margin-bottom: 20px;">
+                <strong>{{ p.university }} ({{ p.country }})</strong><br>
+                Мови навчання: {{ p.languages }} | Кількість місць: {{ p.spots }}<br>
+                Дедлайн подачі: {{ p.deadline|date:"d.m.Y" }} 
+                
+                {% if p.is_active %}
+                    <span style="color: green; font-weight: bold;">(Прийом триває)</span>
+                {% else %}
+                    <span style="color: red; font-weight: bold;">(Прийом завершено)</span>
+                {% endif %}<br>
+                
+                <em>{{ p.description }}</em>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

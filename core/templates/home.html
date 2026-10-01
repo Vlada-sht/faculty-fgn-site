@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Факультет гуманітарних наук</h1>
+    {% if page %}
+        <h3>Про факультет</h3><p>{{ page.description }}</p>
+        <h3>Інформація</h3><p>{{ page.main_info }}</p>
+        <h3>Контакти</h3><p>{{ page.contacts }}</p>
+    {% else %}
+        <p>Зайдіть в адмінку (127.0.0.1:8000/admin) та створіть запис "Home page".</p>
+    {% endif %}
+{% endblock %}
