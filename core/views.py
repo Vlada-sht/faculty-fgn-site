@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import HomePage, Department, Specialty
+from .models import HomePage, Department, Specialty, ExchangeProgram
 
 def home(request):
     page_data = HomePage.objects.first() 
@@ -27,3 +27,7 @@ def department_detail(request, id):
 
 def admission(request):
     return render(request, 'admission.html')
+
+def exchange(request):
+    programs = ExchangeProgram.objects.all()
+    return render(request, 'exchange.html', {'programs': programs})
